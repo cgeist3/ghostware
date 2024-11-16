@@ -26,6 +26,7 @@
         }
 
         function showLoginMenu() {
+            console.log("Login Menu")
             document.body.innerHTML = `
                 <h2>Login</h2>
                 <img src="Gods.png">
@@ -43,6 +44,7 @@
         }
 
         function showRegisterMenu() {
+            console.log("Register Menu")
             document.body.innerHTML = `
                 <h2>Register</h2>
                 <input type="text" id="regUsername" placeholder="Username" required>
@@ -55,6 +57,7 @@
         }
 
         function showWelcomeMenu(user) {
+                console.log("Welcome Menu")
             document.body.innerHTML = `
                 <h2>Welcome, ${user.username}!</h2>
                 <button onclick="switchUser()">Switch User</button>
@@ -199,6 +202,7 @@
         }
 
         function initThreeJS(character, username) {
+                console.log("Entering World ...")
             document.body.innerHTML = ``; // Clear existing HTML
             document.body.innerHTML = `<button id="menuButton" onclick="showWelcomeMenuAgain('${username}')">Show Menu</button>`;
 
@@ -277,9 +281,10 @@
         }
 
         function printDatabase() {
+                console.log(db)
             const transaction = db.transaction(["users"], "readonly");
             const userStore = transaction.objectStore("users");
-                console.log(db)
+                
 
             const getAllRequest = userStore.getAll();
             getAllRequest.onsuccess = function(event) {
