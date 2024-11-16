@@ -1,4 +1,4 @@
-<script>
+
         console.log("Accessing Database...")
         let db;
         let playerPosition = { x: 0, y: 1, z: 0 }; // Player's initial position
