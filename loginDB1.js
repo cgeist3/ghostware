@@ -281,6 +281,7 @@
 
             const getAllRequest = userStore.getAll();
             getAllRequest.onsuccess = function(event) {
+                console.log(db)
                 console.log("All Users:", event.target.result);
             };
         }
