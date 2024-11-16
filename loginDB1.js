@@ -1,3 +1,4 @@
+        console.log("Accessing Ghostware Github loginDB");
         let db;
         let playerPosition = { x: 0, y: 1, z: 0 }; // Player's initial position
         const request = indexedDB.open("GameDatabase", 1);
