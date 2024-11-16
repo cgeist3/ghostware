@@ -278,10 +278,10 @@
         function printDatabase() {
             const transaction = db.transaction(["users"], "readonly");
             const userStore = transaction.objectStore("users");
+                console.log(db)
 
             const getAllRequest = userStore.getAll();
             getAllRequest.onsuccess = function(event) {
-                console.log(db)
                 console.log("All Users:", event.target.result);
             };
         }
