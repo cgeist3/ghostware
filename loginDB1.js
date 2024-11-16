@@ -19,46 +19,62 @@ console.log("Accessing Database...")
         request.onerror = function() {
             console.error("Error opening IndexedDB");
         };
+        request.onload = function() {
+            clearInputFields();
 
+        }
+        request.reload = function() {
+            clearInputFields();
+
+        }
         function clearInputFields() {
             const inputs = document.querySelectorAll("input[type='text'], input[type='password'], input[type='email']");
             inputs.forEach(input => input.value = "");
         }
-
+// <img class="bkgrnd" src="Gods.png">
         function showLoginMenu() {
-            console.log("Login Menu")
+            clearInputFields();
+
             document.body.innerHTML = `
-                <h2>Login</h2>
-                <img src="Gods.png">
-                <input type="text" id="loginUsername" placeholder="Username" required>
-                <input type="password" id="loginPassword" placeholder="Password" required>
-                <br>
-                <label><input type="checkbox" id="saveUsername"> Save my username</label>
-                <br>
-                <button onclick="login()">Login</button>
-                <button onclick="showRegisterMenu()">Register User</button>
-                <button onclick="printDatabase()">Print Database</button>
-                <button onclick="clearInputFields()">Clear Input Fields</button>
+            <div class="loginContainer" style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;">
+                <div style="border: 2px solid gold; position: relative;top: 50%;left:25%;width:600px;background: rgba(.1,.1,.1,.7);">
+                    <h2 stsyle="top: 50%;">Login</h2>
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <br>
+                    <label><input type="checkbox" id="saveUsername"> Save my username</label>
+                    <br>
+                    <button onclick="login()">Login</button>
+                    <button onclick="showRegisterMenu()">Register User</button>
+                    <button onclick="printDatabase()">Print Database</button>
+                    <button onclick="clearInputFields()">Clear Input Fields</button>
+                </div>
+            </div>
             `;
             clearInputFields();
         }
 
         function showRegisterMenu() {
-            console.log("Register Menu")
+            clearInputFields();
             document.body.innerHTML = `
+            <div style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;">
                 <h2>Register</h2>
                 <input type="text" id="regUsername" placeholder="Username" required>
                 <input type="password" id="regPassword" placeholder="Password" required>
                 <input type="email" id="regEmail" placeholder="Email" required>
                 <button onclick="registerUser()">Register</button>
                 <button onclick="showLoginMenu()">Back to Login</button>
+            </div>
             `;
             clearInputFields();
         }
 
         function showWelcomeMenu(user) {
-            console.log("Welcome Menu")
+            clearInputFields();
+
             document.body.innerHTML = `
+                        <div style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;">
+
                 <h2>Welcome, ${user.username}!</h2>
                 <button onclick="switchUser()">Switch User</button>
                 <button onclick="printDatabase()">Print Database</button>
@@ -67,12 +83,15 @@ console.log("Accessing Database...")
                     <button onclick="createCharacter('${user.username}')">Create Character</button>
                     <ul id="characterList"></ul>
                 </div>
+                </div>
             `;
             loadUserCharacters(user.username);
             clearInputFields();
         }
 
         function registerUser() {
+            clearInputFields();
+
             const username = document.getElementById("regUsername").value;
             const password = document.getElementById("regPassword").value;
             const email = document.getElementById("regEmail").value;
@@ -94,6 +113,8 @@ console.log("Accessing Database...")
         }
 
         function login() {
+            // clearInputFields();
+
             const username = document.getElementById("loginUsername").value;
             const password = document.getElementById("loginPassword").value;
 
@@ -108,13 +129,13 @@ console.log("Accessing Database...")
                 } else {
                     alert("Invalid username or password");
                 }
-                clearInputFields();
+                //clearInputFields();
             };
 
             getRequest.onerror = function() {
                 alert("Error logging in");
             };
-            clearInputFields();
+            //clearInputFields();
         }
 
         function switchUser() {
@@ -202,7 +223,7 @@ console.log("Accessing Database...")
         }
 
         function initThreeJS(character, username) {
-            console.log("Entering World...")
+
             document.body.innerHTML = ``; // Clear existing HTML
             document.body.innerHTML = `<button id="menuButton" onclick="showWelcomeMenuAgain('${username}')">Show Menu</button>`;
 
@@ -284,7 +305,6 @@ console.log("Accessing Database...")
             const transaction = db.transaction(["users"], "readonly");
             const userStore = transaction.objectStore("users");
 
-            console.log(db)
             const getAllRequest = userStore.getAll();
             getAllRequest.onsuccess = function(event) {
                 console.log("All Users:", event.target.result);
