@@ -35,6 +35,7 @@
         }
 // <img class="bkgrnd" src="Gods.png">
         function showLoginMenu() {
+            console.log("Login Menu");
             clearInputFields();
 
             document.body.innerHTML = `
@@ -57,6 +58,7 @@
         }
 
         function showRegisterMenu() {
+            console.log("Register Menu");
             clearInputFields();
             document.body.innerHTML = `
             <div style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;">
@@ -72,6 +74,7 @@
         }
 
         function showWelcomeMenu(user) {
+                console.log("Welcome Menu")
             clearInputFields();
 
             document.body.innerHTML = `
