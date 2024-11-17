@@ -81,6 +81,7 @@
 
             document.body.innerHTML = `
                         <div style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;">
+                <div style="border: 2px solid gold; position: relative;top: 50%;left:25%;width:600px;background: rgba(.1,.1,.1,.7);">
 
                 <h2>Welcome, ${user.username}!</h2>
                 <button onclick="switchUser()">Switch User</button>
@@ -89,6 +90,7 @@
                     <h3>Character Selection</h3>
                     <button onclick="createCharacter('${user.username}')">Create Character</button>
                     <ul id="characterList"></ul>
+                </div>
                 </div>
                 </div>
             `;
