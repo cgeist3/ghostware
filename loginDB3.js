@@ -307,6 +307,7 @@
         }
 
         function printDatabase() {
+            console.log(db)
             const transaction = db.transaction(["users"], "readonly");
             const userStore = transaction.objectStore("users");
 
