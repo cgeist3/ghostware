@@ -62,14 +62,14 @@
             clearInputFields();
             document.body.innerHTML = `
             <div style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;">
-            <div style="border: 2px solid gold; position: relative;top: 50%;left:25%;width:600px;background: rgba(.1,.1,.1,.7);">
-                <h2>Register</h2>
-                <input type="text" id="regUsername" placeholder="Username" required>
-                <input type="password" id="regPassword" placeholder="Password" required>
-                <input type="email" id="regEmail" placeholder="Email" required>
-                <button onclick="registerUser()">Register</button>
-                <button onclick="showLoginMenu()">Back to Login</button>
-                </div>
+                    <div style="border: 2px solid gold; position: relative;top: 50%;left:25%;width:600px;background: rgba(.1,.1,.1,.7);">
+                        <h2>Register</h2>
+                        <input type="text" id="regUsername" placeholder="Username" required>
+                        <input type="password" id="regPassword" placeholder="Password" required>
+                        <input type="email" id="regEmail" placeholder="Email" required>
+                        <button onclick="registerUser()">Register</button>
+                        <button onclick="showLoginMenu()">Back to Login</button>
+                    </div>
             </div>
             `;
             clearInputFields();
@@ -80,18 +80,17 @@
             clearInputFields();
 
             document.body.innerHTML = `
-                        <div style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;background: rgba(.1,.1,.1,.7);">
-                <div style="border: 2px solid gold; position: relative;top: 50%;left:25%;width:600px;background: rgba(.1,.1,.1,.7);">
-
-                <h2>Welcome, ${user.username}!</h2>
-                <button onclick="switchUser()">Switch User</button>
-                <button onclick="printDatabase()">Print Database</button>
-                <div id="characterSelection">
-                    <h3>Character Selection</h3>
-                    <button onclick="createCharacter('${user.username}')">Create Character</button>
-                    <ul id="characterList"></ul>
-                </div>
-                </div>
+                <div style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;">
+                        <div style="border: 2px solid gold; position: relative;top: 20%;left:25%;width:600px;background: rgba(.1,.1,.1,.7);">
+                                <h2>Welcome, ${user.username}!</h2>
+                                <button onclick="switchUser()">Switch User</button>
+                                <button onclick="printDatabase()">Print Database</button>
+                                <div id="characterSelection">
+                                    <h3>Character Selection</h3>
+                                    <button onclick="createCharacter('${user.username}')">Create Character</button>
+                                    <ul id="characterList"></ul>
+                                </div>
+                        </div>
                 </div>
             `;
             loadUserCharacters(user.username);
