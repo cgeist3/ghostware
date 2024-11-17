@@ -62,12 +62,14 @@
             clearInputFields();
             document.body.innerHTML = `
             <div style="background-image: url('./Gods.png'); height:650px;width:1200px; background-repeat: no-repeat; background-position: center;">
+            <div style="border: 2px solid gold; position: relative;top: 50%;left:25%;width:600px;background: rgba(.1,.1,.1,.7);">
                 <h2>Register</h2>
                 <input type="text" id="regUsername" placeholder="Username" required>
                 <input type="password" id="regPassword" placeholder="Password" required>
                 <input type="email" id="regEmail" placeholder="Email" required>
                 <button onclick="registerUser()">Register</button>
                 <button onclick="showLoginMenu()">Back to Login</button>
+                </div>
             </div>
             `;
             clearInputFields();
