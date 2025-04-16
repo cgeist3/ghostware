@@ -33,8 +33,8 @@ function initStarryBackground() {
 
 function animate() {
     requestAnimationFrame(animate);
-    stars.rotation.x += 0.0005;
-    stars.rotation.y += 0.0005;
+    stars.rotation.x += 0.0002;
+    stars.rotation.y += 0.0002;
     renderer.render(scene, camera);
 }
 
